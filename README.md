@@ -1,14 +1,14 @@
 # Benchmark Low-Bit LLMs: GPT-OSS & Qwen3
 
-A comprehensive benchmarking framework for evaluating GPT-OSS and quantized Qwen3 models across multiple datasets and precision levels.
+A comprehensive benchmarking framework for evaluating quantized GPT-OSS and Qwen3 models across multiple datasets and precision levels.
 
 ## Quick Start
 
 ### Setup Environment
 ```bash
 cd ./dockers
-sudo ./build_docker.sh ./[dockerfile_name]
-sudo ./launch_docker.sh [container_name]
+sudo ./build_docker.sh ./rtx_3080_Dockerfile
+sudo ./launch_docker.sh jiaqi_dev
 ```
 
 ### Run Evaluation
@@ -21,7 +21,18 @@ python3 ./compute_metric.py -c /app/outputs/qwen3_4B_bf16_mmlu_redux
 ## Supported Models
 
 ### GPT-OSS
-### Qwen3  
+- **GPT-OSS-20B**: Original MXFP4 quantization format
+
+### Qwen3 Model Family
+- **Qwen3-1.7B**: Base model with comprehensive quantization support
+  - Precision levels: BF16, INT8, FP8, NVFP4, MXFP4, INT4
+  - Thinking mode variants available
+- **Qwen3-4B**: Mid-size model with strong performance
+  - Precision levels: BF16, NVFP4
+  - Thinking/non-thinking mode support
+- **Qwen3-30B-A3B-Instruct**: Large instruction-tuned model
+  - Precision levels: BF16, NVFP4, MXFP4, INT8-W8A8
+  - Optimized for instruction following and reasoning tasks
 
 ## Datasets
 
