@@ -7,8 +7,8 @@ A comprehensive benchmarking framework for evaluating quantized GPT-OSS and Qwen
 ### Setup Environment
 ```bash
 cd ./dockers
-sudo ./build_docker.sh ./rtx_3080_Dockerfile
-sudo ./launch_docker.sh jiaqi_dev
+sudo ./build_docker.sh ./[dockerfile_name]
+sudo ./launch_docker.sh [container_name]
 ```
 
 ### Run Evaluation
