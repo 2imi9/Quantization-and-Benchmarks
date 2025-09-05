@@ -21,7 +21,7 @@ python3 ./compute_metric.py -c /app/outputs/qwen3_4B_bf16_mmlu_redux
 ## Supported Models
 
 ### GPT-OSS
-- **GPT-OSS-20B**: Original MXFP4 quantization format
+- **GPT-OSS-20B**: Original MXFP4 quantization format, NVFP4 [Comming Soon]
 
 ### Qwen3 Model Family
 - **Qwen3-1.7B**: Base model with comprehensive quantization support
