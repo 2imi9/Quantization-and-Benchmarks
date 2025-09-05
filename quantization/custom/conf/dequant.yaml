@@ -1,0 +1,4 @@
+input_dir: /app/outputs/quantized_ckpts/Qwen3-30B-A3B-Instruct-2507-nvfp4a16-torchao
+output_dir: /app/outputs/quantized_ckpts/Qwen3-30B-A3B-Instruct-2507-nvfp4a16-torchao-dequant-bf16
+verify_with_transformers: true
+quant_type: nvfp4

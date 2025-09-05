@@ -1,0 +1,106 @@
+model_name: Qwen/Qwen3-4B
+series: qwen3
+dataset:
+  mmlu-redux:
+    enable_thinking: false
+    temperature: 0.1
+    top_p: 0.8
+    top_k: 20
+    presence_penalty: 1.0
+    max_sequence_length: 4096
+    do_sample: true
+    num_return_sequences: 1
+    template_fn: "qwen3.apply_for_mmlu_redux_2"
+  ruler-32k:
+    enable_thinking: false
+    temperature: 0.1
+    top_p: 0.8
+    top_k: 20
+    presence_penalty: 1.0
+    max_sequence_length: 32768
+    do_sample: true
+    num_return_sequences: 1
+    template_fn: "qwen3.apply_for_ruler"
+  ifeval:
+    enable_thinking: false
+    temperature: 0.1
+    top_p: 0.8
+    top_k: 20
+    presence_penalty: 1.0
+    max_sequence_length: 8192
+    do_sample: true
+    num_return_sequences: 1
+    template_fn: "qwen3.apply_for_ifeval"
+  math500:
+    enable_thinking: true
+    temperature: 0.6
+    top_p: 0.95
+    top_k: 20
+    presence_penalty: 1.0
+    max_sequence_length: 32768
+    do_sample: true
+    num_return_sequences: 1
+    template_fn: "qwen3.apply_for_math500"
+  math500-nonthinking:
+    enable_thinking: false
+    temperature: 0.7
+    top_p: 0.8
+    top_k: 20
+    presence_penalty: 1.5
+    max_sequence_length: 32768
+    do_sample: true
+    num_return_sequences: 1
+    template_fn: "qwen3.apply_for_math500"
+  livecode_v5:
+    enable_thinking: false
+    temperature: 0.7
+    top_p: 0.8
+    top_k: 20
+    presence_penalty: 1.5
+    max_sequence_length: 32768
+    do_sample: true
+    num_return_sequences: 1
+    template_fn: "qwen3.apply_for_livecode_v5"
+  livecode_v5-thinking:
+    enable_thinking: true
+    temperature: 0.6
+    top_p: 0.95
+    top_k: 20
+    presence_penalty: 1.0
+    max_sequence_length: 32768
+    do_sample: true
+    num_return_sequences: 1
+    template_fn: "qwen3.apply_for_livecodebench"
+    trim_reasoning_tokens_fn: qwen3.trim_reasoning_tokens
+  aime25:
+    enable_thinking: true
+    temperature: 0.6
+    top_p: 0.95
+    top_k: 20
+    presence_penalty: 1.0
+    max_sequence_length: 32768
+    do_sample: true
+    num_return_sequences: 1
+    template_fn: "qwen3.apply_for_aime25"
+    trim_reasoning_tokens_fn: qwen3.trim_reasoning_tokens
+predictor_conf:
+  transformers:
+    batch_size: 1
+  vllm:
+    # Pipeline parallelism configuration
+    pipeline_parallel_size: 1
+    tensor_parallel_size: 8
+    # Memory and efficiency optimizations
+    gpu_memory_utilization: 0.8
+    max_seq_len: 32768
+    # Dynamic batching parameters
+    max_num_batched_tokens: 32768
+    max_num_seqs: 10
+    # Disable prefix caching for better memory efficiency
+    enable_prefix_caching: false
+    quantization: null
+output_dir: null
+eval_dataset: null
+eval_dataset_config: null
+debug: false
+eval_predictor: vllm

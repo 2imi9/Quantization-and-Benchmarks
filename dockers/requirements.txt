@@ -1,0 +1,10 @@
+loguru
+ipython
+hydra-core
+datasets
+immutabledict
+nltk
+langdetect
+python-dotenv
+math-verify[antlr4_9_3]
+tqdm

@@ -1,0 +1,16 @@
+# vllm/vllm-openai:v0.9.1
+FROM vllm/vllm-openai:v0.9.1
+
+RUN apt-get update --fix-missing
+RUN apt-get install -y git \
+    curl \
+    wget \
+    tmux
+
+# Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+WORKDIR /app
+
+ENTRYPOINT []

@@ -1,0 +1,11 @@
+input_dir: /root/.cache/huggingface/hub/models--Qwen--Qwen3-30B-A3B-Instruct-2507/snapshots/3ffd1f50b179e643d839c86df9ffbbefcb0d5018/
+output_dir: /app/outputs/quantized_ckpts/Qwen3-30B-A3B-Instruct-2507-nvfp4a16-torchao
+patterns:
+  - "model.layers.*.mlp.experts.*.up_proj.weight"
+  - "model.layers.*.mlp.experts.*.down_proj.weight"
+  - "model.layers.*.mlp.experts.*.gate_proj.weight"
+  - "model.layers.*.self_attn.q_proj.weight"
+  - "model.layers.*.self_attn.k_proj.weight"
+  - "model.layers.*.self_attn.v_proj.weight"
+  - "model.layers.*.self_attn.o_proj.weight"
+quant_type: nvfp4

@@ -1,0 +1,19 @@
+FROM vllm/vllm-openai:v0.8.5.post1
+
+RUN apt-get update --fix-missing
+RUN apt-get install -y git \
+    curl \
+    wget \
+    tmux
+
+# Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Quantization dependencies
+COPY ../quantization/requirements.txt .
+RUN pip install --no-cache-dir -r quantization/requirements.txt
+
+WORKDIR /app
+
+ENTRYPOINT []

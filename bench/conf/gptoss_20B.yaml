@@ -1,0 +1,92 @@
+model_name: openai/gpt-oss-20b
+series: gptoss
+dataset:
+  math500:
+    enable_thinking: false
+    temperature: 1.0
+    top_p: 1.0
+    top_k: 100
+    presence_penalty: 1.0
+    max_sequence_length: 16384
+    do_sample: true
+    num_return_sequences: 1
+    template_fn: "gptoss.apply_for_math500"
+    reasoning_effort: "medium"
+  aime25:
+    enable_thinking: false
+    temperature: 1.0
+    top_p: 1.0
+    top_k: 100
+    presence_penalty: 1.0
+    max_sequence_length: 16384
+    do_sample: true
+    num_return_sequences: 8
+    template_fn: "gptoss.apply_for_math500"
+    reasoning_effort: "medium"
+  livecode_v5:
+    enable_thinking: false
+    temperature: 1.0
+    top_p: 1.0
+    top_k: 100
+    presence_penalty: 1.0
+    max_sequence_length: 16384
+    do_sample: true
+    num_return_sequences: 1
+    template_fn: "gptoss.apply_for_livecodebench"
+    reasoning_effort: "medium"
+  ifeval:
+    enable_thinking: false
+    temperature: 1.0
+    top_p: 1.0
+    top_k: 100
+    presence_penalty: 1.0
+    max_sequence_length: 4096
+    do_sample: true
+    num_return_sequences: 1
+    template_fn: "gptoss.apply_for_ifeval"
+    reasoning_effort: "medium"
+  mmlu-redux:
+    enable_thinking: false
+    temperature: 1.0
+    top_p: 1.0
+    top_k: 100
+    presence_penalty: 1.0
+    max_sequence_length: 8192
+    do_sample: true
+    num_return_sequences: 1
+    template_fn: "gptoss.apply_for_mmlu_redux"
+    reasoning_effort: "medium"
+  ruler-32k:
+    enable_thinking: false
+    temperature: 1.0
+    top_p: 1.0
+    top_k: 100
+    presence_penalty: 1.0
+    max_sequence_length: 32768
+    do_sample: true
+    num_return_sequences: 1
+    template_fn: "gptoss.apply_for_ruler"
+    reasoning_effort: "medium"
+predictor_conf:
+  transformers:
+    batch_size: 1
+  vllm:
+    # Pipeline parallelism configuration
+    pipeline_parallel_size: 1
+    tensor_parallel_size: 8
+    # Memory and efficiency optimizations
+    gpu_memory_utilization: 0.9
+    max_seq_len: 16384
+    # Dynamic batching parameters
+    max_num_batched_tokens: 16384 
+    max_num_seqs: 10
+    # Disable prefix caching for better memory efficiency
+    enable_prefix_caching: false
+    quantization: null
+    enforce_eager: true
+    cpu_offload_gb: 0
+output_dir: null
+eval_dataset: null
+eval_dataset_config: null
+debug: false
+eval_predictor: vllm
