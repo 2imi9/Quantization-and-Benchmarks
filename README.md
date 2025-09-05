@@ -1,6 +1,6 @@
 # Benchmark Low-Bit LLMs: GPT-OSS & Qwen3
 
-A comprehensive benchmarking framework for evaluating quantized GPT-OSS and Qwen3 models across multiple datasets and precision levels.
+A comprehensive benchmarking framework for evaluating GPT-OSS and quantized Qwen3 models across multiple datasets and precision levels.
 
 ## Quick Start
 
@@ -21,11 +21,7 @@ python3 ./compute_metric.py -c /app/outputs/qwen3_4B_bf16_mmlu_redux
 ## Supported Models
 
 ### GPT-OSS
-- **GPT-OSS-20B**: BF16, INT4, INT8 with reasoning effort control
-
 ### Qwen3  
-- **Qwen3-1.7B, 4B**: Base models with thinking/non-thinking modes
-- **Qwen3-30B-A3B-Instruct**: Instruction-tuned with multi-modal support
 
 ## Datasets
 
